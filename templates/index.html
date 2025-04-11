@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Code Reviewer</title>
+    <style>
+        body { font-family: Arial; padding: 2rem; background: #f5f5f5; }
+        textarea, pre { width: 100%; }
+        textarea { height: 200px; margin-bottom: 1rem; }
+        button { padding: 10px 20px; font-size: 1rem; }
+        .review-box { background: #fff; padding: 1rem; border-radius: 8px; }
+    </style>
+</head>
+<body>
+    <h1>🔍 AI Code Reviewer</h1>
+    <form method="POST">
+        <label>Paste Python Code:</label><br>
+        <textarea name="code" required>{{ code }}</textarea><br>
+        <button type="submit">Review Code</button>
+    </form>
+
+    {% if review %}
+    <h2>🧠 Review Result:</h2>
+    <div class="review-box">
+        <pre>{{ review }}</pre>
+    </div>
+    {% endif %}
+</body>
+</html>
