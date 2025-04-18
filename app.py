@@ -3,12 +3,12 @@ import google.generativeai as genai
 import os
 from dotenv import load_dotenv
 load_dotenv()
-# 🔐 Set your Gemini API Key
+# Set your Gemini API Key
 genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
 
 app = Flask(__name__)
 
-# 🧠 Gemini model setup
+# Gemini model setup
 model = genai.GenerativeModel("gemini-1.5-flash")
 
 @app.route("/", methods=["GET", "POST"])
@@ -25,6 +25,7 @@ def index():
             - Optimization suggestions
             - Best practices if the code is correct don't give suggestions
             - give the correct code if the code is incorrect
+            - Give me in few lines correct or not, if not git me the suggestions
 
             Code:
             {code}

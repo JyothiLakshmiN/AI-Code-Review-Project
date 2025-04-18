@@ -1,29 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>AI Code Reviewer</title>
-    <style>
-        body { font-family: Arial; padding: 2rem; background: #f5f5f5; }
-        textarea, pre { width: 100%; }
-        textarea { height: 200px; margin-bottom: 1rem; }
-        button { padding: 10px 20px; font-size: 1rem; }
-        .review-box { background: #fff; padding: 1rem; border-radius: 8px; }
-    </style>
+  <meta charset="UTF-8">
+  <title>AI Code Reviewer</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(to right, #667eea, #764ba2);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Poppins', sans-serif;
+    }
+    .card {
+      width: 90%;
+      max-width: 900px;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.2);
+      background-color: white;
+    }
+    textarea {
+      height: 250px;
+      resize: none;
+      font-size: 1rem;
+      padding: 15px;
+    }
+    .btn-primary {
+      background-color: #5a67d8;
+      border: none;
+    }
+    .btn-primary:hover {
+      background-color: #434190;
+    }
+    pre {
+      background-color: #f8f9fa;
+      padding: 20px;
+      border-radius: 10px;
+      overflow-x: auto;
+      white-space: pre-wrap;
+      word-break: break-word;
+      font-size: 0.95rem;
+    }
+    h1 {
+      font-weight: 700;
+      color: #333;
+    }
+    .footer {
+      margin-top: 30px;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #666;
+    }
+  </style>
 </head>
 <body>
-    <h1>🔍 AI Code Reviewer</h1>
+  <div class="card">
+    <h1 class="text-center mb-4">🚀 AI Code Reviewer</h1>
+
     <form method="POST">
-        <label>Paste Python Code:</label><br>
-        <textarea name="code" required>{{ code }}</textarea><br>
-        <button type="submit">Review Code</button>
+      <div class="mb-3">
+        <textarea class="form-control" name="code" placeholder="Paste your Python code here...">{{ code }}</textarea>
+      </div>
+      <div class="d-grid">
+        <button type="submit" class="btn btn-primary btn-lg">Review My Code</button>
+      </div>
     </form>
 
     {% if review %}
-    <h2>🧠 Review Result:</h2>
-    <div class="review-box">
-        <pre>{{ review }}</pre>
+    <div class="mt-5">
+      <h4>🔍 Review Results:</h4>
+      <pre>{{ review }}</pre>
     </div>
     {% endif %}
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
