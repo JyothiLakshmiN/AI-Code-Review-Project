@@ -1,9 +1,10 @@
 from flask import Flask, render_template, request
 import google.generativeai as genai
 import os
-
+from dotenv import load_dotenv
+load_dotenv()
 # 🔐 Set your Gemini API Key
-genai.configure(api_key="AIzaSyCIqYQvLOVOqmSYvBnvmFkXlkOkqKLdy_c")  # Replace with your API key
+genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
 
 app = Flask(__name__)
 
@@ -22,7 +23,8 @@ def index():
             - Bugs
             - Code style
             - Optimization suggestions
-            - Best practices
+            - Best practices if the code is correct don't give suggestions
+            - give the correct code if the code is incorrect
 
             Code:
             {code}
