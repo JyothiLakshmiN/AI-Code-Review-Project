@@ -61,8 +61,26 @@
 
     <form method="POST">
       <div class="mb-3">
-        <textarea class="form-control" name="code" placeholder="Paste your Python code here...">{{ code }}</textarea>
+        <label for="language" class="form-label">Select Programming Language:</label>
+        <select class="form-select" name="language" id="language" required>
+          <option value="" disabled selected>Select language</option>
+          <option value="python">Python</option>
+          <option value="javascript">JavaScript</option>
+          <option value="java">Java</option>
+          <option value="cpp">C++</option>
+          <option value="csharp">C#</option>
+          <option value="go">Go</option>
+          <option value="ruby">Ruby</option>
+          <option value="php">PHP</option>
+          <option value="typescript">TypeScript</option>
+          <option value="swift">Swift</option>
+        </select>
       </div>
+
+      <div class="mb-3">
+        <textarea class="form-control" name="code" placeholder="Paste your code here...">{{ code }}</textarea>
+      </div>
+
       <div class="d-grid">
         <button type="submit" class="btn btn-primary btn-lg">Review My Code</button>
       </div>
